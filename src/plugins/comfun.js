@@ -42,11 +42,9 @@ export default {
             if (url.indexOf('http://') === 0 || url.indexOf('https://') === 0) {
               callUrl = url
             }
-            context.$http.post(callUrl, JSON.stringify(paramsData), {
-              'headers': {
-                'Content-Type': 'application/json;charset=utf-8',
-                'Access-Control-Allow-Origin': '*'
-              }
+            console.log(paramsData)
+            context.$http.post(callUrl, paramsData, {
+              emulateJSON: true
             }).then(response => {
               context.$comfun.consoleBeautiful(context, '接口访问完成：url【' + url + '】', '#0FB0BF', 'https://img.zcool.cn/community/01db9f579571700000012e7e9da0fb.gif', {
                 '链接': callUrl,

@@ -55,8 +55,8 @@ export default {
         </div>
         <div class="pop-form-item user-order-time">
           <span></span>
-          <input type="text" placeholder="预约时间" v-model="userOrderTimeInput"/>
-          <!-- <input type="text" readonly placeholder="预约时间" v-model="userOrderTimeInput" @focus="showOrderTimePicker(true)" @blur="showOrderTimePicker(false)"/> -->
+          <!-- <input type="text" placeholder="预约时间" v-model="userOrderTimeInput"/> -->
+          <input type="text" readonly placeholder="预约时间" v-model="userOrderTimeInput" @focus="showOrderTimePicker(true)" @blur="showOrderTimePicker(false)"/>
           <div class="picker-pop" ref="order_time_picker_wrap"></div>
           <span v-show="showUserOrderTimeTip">请选择预约时间</span>
         </div>
