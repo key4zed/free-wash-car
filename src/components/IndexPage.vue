@@ -454,7 +454,7 @@ export default {
             orderSuccessSure () {
               this.$tip_close()
               this.$loading('正在跳转到您预约的店铺')
-              window.location.href = upkeep.link
+              window.location.href = upkeep.link + '&channel=ncar_ios&os=ios'
             }
           }
         })
