@@ -12,6 +12,7 @@
             </div>
           </div>
           <div class='show-more' v-if='!showMore' @click='showMoreCoupon'></div>
+          <div class='hide-more' v-if='showMore' @click='showMoreCoupon'></div>
         </div>
       </div>
       <span class='more-sale-title' v-if='upkeepList.length > 0'>来DC商城APP享更多超值优惠</span>
@@ -206,9 +207,7 @@ export default {
     },
     activePrice (price, unit) {
       var priceArr = price.split('.')
-      var returnPriceHtml = `&#xa5<span style='font-size: 1.1rem'>${
-        priceArr[0]
-      }</span>.<span style='font-size: 0.9rem'>${priceArr[1]}</span>`
+      var returnPriceHtml = `&#xa5<span style='font-size: 1.1rem'>${priceArr[0]}</span>.<span style='font-size: 0.9rem'>${priceArr[1]}</span>`
       if (unit) {
         returnPriceHtml += `<span style='font-size: 0.9rem'> / ${unit}</span>`
       }
@@ -656,6 +655,18 @@ export default {
   height: 4rem;
   overflow: hidden;
   z-index: 999;
+}
+
+.datas-wrap > .coupon-wrap > .coupon-items-wrap > .hide-more {
+  position: relative;
+  height: 26px;
+  width: 100%;
+  margin-top: 0.4rem;
+  transform: rotate(180deg);
+  background-image: url('../assets/more.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 65%;
 }
 
 /* 来商城app享受更多优惠 */
