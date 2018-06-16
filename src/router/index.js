@@ -15,9 +15,10 @@ Vue.use(Config)
 Vue.use(ComFun)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/free_wash_car',
       name: 'IndexPage',
       component: IndexPage
     }

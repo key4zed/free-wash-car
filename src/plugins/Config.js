@@ -18,17 +18,17 @@ export default {
           <span class="pop-form-close" @click="popClose"></span>
           <div class="pop-form-item user-name">
             <span></span>
-            <input type="text" placeholder="请填写您的姓名" v-model.lazy="userNameInput"/>
+            <input type="text" placeholder="请填写您的姓名" v-model="userNameInput"/>
             <span v-show="showUserNameTip">请填写您的姓名</span>
           </div>
           <div class="pop-form-item user-phone">
             <span></span>
-            <input type="text" placeholder="请填写您的联系方式" v-model.lazy.number="userPhoneInput"/>
+            <input type="text" placeholder="请填写您的联系方式" v-model="userPhoneInput"/>
             <span v-show="showUserPhoneTip">请填写您的联系方式</span>
           </div>
           <div class="pop-form-item user-car-plate">
             <span></span>
-            <input type="text" placeholder="请填写您的车牌号" v-model.lazy="userCarPlateInput"/>
+            <input type="text" placeholder="请填写您的车牌号" v-model="userCarPlateInput"/>
             <span v-show="showUserCarPlateTip">请填写您的车牌号</span>
           </div>
           <div class="form-btn-wrap">
@@ -40,22 +40,22 @@ export default {
         <span class="pop-form-close" @click="popClose"></span>
         <div class="pop-form-item user-name">
           <span></span>
-          <input type="text" placeholder="请填写您的姓名" v-model.lazy="userNameInput"/>
+          <input type="text" placeholder="请填写您的姓名" v-model="userNameInput"/>
           <span v-show="showUserNameTip">请填写您的姓名</span>
         </div>
         <div class="pop-form-item user-phone">
           <span></span>
-          <input type="text" placeholder="请填写您的联系方式" v-model.lazy.number="userPhoneInput"/>
+          <input type="text" placeholder="请填写您的联系方式" v-model="userPhoneInput"/>
           <span v-show="showUserPhoneTip">请填写您的联系方式</span>
         </div>
         <div class="pop-form-item user-car-plate">
           <span></span>
-          <input type="text" placeholder="请填写您的车牌号" v-model.lazy="userCarPlateInput"/>
+          <input type="text" placeholder="请填写您的车牌号" v-model="userCarPlateInput"/>
           <span v-show="showUserCarPlateTip">请填写您的车牌号</span>
         </div>
         <div class="pop-form-item user-order-time">
           <span></span>
-          <input type="text" readonly placeholder="预约时间" v-model.lazy="userOrderTimeInput" @focus="showOrderTimePicker(true)" @blur="showOrderTimePicker(false)"/>
+          <input type="text" readonly placeholder="预约时间" v-model="userOrderTimeInput" @focus="showOrderTimePicker(true)" @blur="showOrderTimePicker(false)"/>
           <div class="picker-pop" ref="order_time_picker_wrap"></div>
           <span v-show="showUserOrderTimeTip">请选择预约时间</span>
         </div>

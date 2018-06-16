@@ -176,6 +176,29 @@ export default {
           }
         }
         return fmt
+      },
+      // 获取当前浏览器访问地址，会将地址，参数部分，#部分分别放入json返回
+      getCurrentUrl: function (encodeURIFlag) {
+        var href = location.href
+        var pathname = location.pathname
+        var search = location.search
+        var hash = location.hash
+        var urlAnalysis = {
+          href: href,
+          pathname: pathname,
+          search: search,
+          hash: hash
+        }
+        return urlAnalysis
+      },
+      getParamInUrl (key) {
+        var reg = new RegExp('(^|&)' + key + '=([^&]*)(&|$)')
+        var r = window.location.search.substr(1).match(reg)
+        if (r !== null) {
+          return r[2]
+        } else {
+          return null
+        }
       }
     }
 

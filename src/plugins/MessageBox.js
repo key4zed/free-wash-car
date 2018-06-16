@@ -494,7 +494,7 @@ export default {
       }
       var tipElem = document.createElement('div')
       tipElem.id = 'tip-message-box'
-      tipElem.style.position = 'fixed'
+      tipElem.style.position = 'absolute'
       tipElem.style.left = '50%'
       tipElem.style.minWidth = '76vw'
       tipElem.style.maxWidth = '76vw'
@@ -513,7 +513,7 @@ export default {
         var TipPopWrap = new TipPopComponent().$mount()
         tipElem.appendChild(TipPopWrap.$el)
       }
-      tipElem.style.top = `calc(50% - ${tipElem.clientHeight / 2}px - 20px)`
+      tipElem.style.top = `calc(${document.documentElement.scrollTop}px + (50% - ${tipElem.clientHeight / 2}px - 20px))`
       tipElem.style.left = `calc(50% - ${tipElem.clientWidth / 2}px)`
     }
 

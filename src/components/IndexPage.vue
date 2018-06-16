@@ -64,85 +64,99 @@ export default {
         id: 'coupon-1',
         type: '洗车券',
         shopName: '一汽大众4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092d5'
       },
       {
         id: 'coupon-2',
         type: '洗车券',
         shopName: '福特4S店',
-        address: '新晋祠路109号'
+        address: '新晋祠路109号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092cc'
       },
       {
         id: 'coupon-3',
         type: '洗车券',
         shopName: '一汽丰田4S店',
-        address: '太榆路88号'
+        address: '太榆路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092cf'
       },
       {
         id: 'coupon-4',
         type: '洗车券',
         shopName: '广汽丰田4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092e7'
       },
       {
         id: 'coupon-5',
         type: '洗车券',
         shopName: '东风日产4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092de'
       },
       {
         id: 'coupon-6',
         type: '洗车券',
         shopName: '福特4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092e1'
       },
       {
         id: 'coupon-7',
         type: '洗车券',
         shopName: '斯柯达4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb6a219b23e40c092ed'
       },
       {
         id: 'coupon-8',
         type: '洗车券',
         shopName: '起亚4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb6a219b23e40c092f0'
       },
       {
         id: 'coupon-9',
         type: '洗车券',
         shopName: '奥迪4S店',
-        address: '太榆路88号'
+        address: '太榆路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092d8'
       },
       {
         id: 'coupon-10',
         type: '洗车券',
         shopName: '雷克萨斯4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb6a219b23e40c092ea'
       },
       {
         id: 'coupon-11',
         type: '洗车券',
         shopName: '一汽大众4S店',
-        address: '太榆路88号'
+        address: '太榆路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092e4'
       },
       {
         id: 'coupon-12',
         type: '洗车券',
         shopName: 'JEEP 4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092db'
       },
       {
         id: 'coupon-13',
         type: '洗车券',
         shopName: '雷诺4S店',
-        address: '平阳南路88号'
+        address: '平阳南路88号',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb5a219b23e40c092c8'
       },
       {
         id: 'coupon-14',
         type: '洗车券',
         shopName: '奥迪4S店',
-        address: '龙城大街北端'
+        address: '龙城大街北端',
+        link: 'https://m.dcsc520.com/car_service/merchant_info.html?merchantId=5a7afdb6a219b23e40c09311'
       }
     ]
     this.upkeepList = [
@@ -214,8 +228,12 @@ export default {
       return returnPriceHtml
     },
     getCoupon (coupon) {
-      this.showGetPop(coupon)
-      // this.showOrderPop(coupon)
+      var source = this.$comfun.getParamInUrl('source')
+      if (source === 'app') {
+        this.showOrderPop(coupon)
+      } else {
+        this.showGetPop(coupon)
+      }
     },
     orderUpkeep (upkeep) {
       window.location.href = 'tel:' + upkeep.contact
@@ -373,16 +391,10 @@ export default {
                       })
                     } else {
                       this.$toast('预约失败')
-                      this.$tip_close().then(() => {
-                        that.showOrderSuccessPop(upkeep)
-                      })
                     }
                   },
                   response => {
                     this.$toast('预约失败')
-                    this.$tip_close().then(() => {
-                      that.showOrderSuccessPop(upkeep)
-                    })
                   }
                 )
             }
@@ -441,6 +453,8 @@ export default {
             },
             orderSuccessSure () {
               this.$tip_close()
+              this.$loading('正在跳转到您预约的店铺')
+              window.location.href = upkeep.link
             }
           }
         })
